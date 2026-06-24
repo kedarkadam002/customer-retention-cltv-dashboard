@@ -21,7 +21,7 @@ function downloadCsv() {
   const csv = [
     headers.join(","),
     ...rows.map((r) =>
-      headers.map((h) => JSON.stringify((r as Record<string, unknown>)[h] ?? "")).join(",")
+      headers.map((h) => JSON.stringify((r as unknown as Record<string, unknown>)[h] ?? "")).join(",")
     ),
   ].join("\n");
   const blob = new Blob([csv], { type: "text/csv" });
