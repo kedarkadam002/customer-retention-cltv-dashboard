@@ -9,8 +9,62 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SegmentationRouteImport } from './routes/segmentation'
+import { Route as RetentionRouteImport } from './routes/retention'
+import { Route as PredictiveRouteImport } from './routes/predictive'
+import { Route as JourneyRouteImport } from './routes/journey'
+import { Route as Customer360RouteImport } from './routes/customer-360'
+import { Route as CltvRouteImport } from './routes/cltv'
+import { Route as ChurnRouteImport } from './routes/churn'
+import { Route as AiInsightsRouteImport } from './routes/ai-insights'
+import { Route as AdministrationRouteImport } from './routes/administration'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SegmentationRoute = SegmentationRouteImport.update({
+  id: '/segmentation',
+  path: '/segmentation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RetentionRoute = RetentionRouteImport.update({
+  id: '/retention',
+  path: '/retention',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PredictiveRoute = PredictiveRouteImport.update({
+  id: '/predictive',
+  path: '/predictive',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JourneyRoute = JourneyRouteImport.update({
+  id: '/journey',
+  path: '/journey',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Customer360Route = Customer360RouteImport.update({
+  id: '/customer-360',
+  path: '/customer-360',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CltvRoute = CltvRouteImport.update({
+  id: '/cltv',
+  path: '/cltv',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChurnRoute = ChurnRouteImport.update({
+  id: '/churn',
+  path: '/churn',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiInsightsRoute = AiInsightsRouteImport.update({
+  id: '/ai-insights',
+  path: '/ai-insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdministrationRoute = AdministrationRouteImport.update({
+  id: '/administration',
+  path: '/administration',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +73,158 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/administration': typeof AdministrationRoute
+  '/ai-insights': typeof AiInsightsRoute
+  '/churn': typeof ChurnRoute
+  '/cltv': typeof CltvRoute
+  '/customer-360': typeof Customer360Route
+  '/journey': typeof JourneyRoute
+  '/predictive': typeof PredictiveRoute
+  '/retention': typeof RetentionRoute
+  '/segmentation': typeof SegmentationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/administration': typeof AdministrationRoute
+  '/ai-insights': typeof AiInsightsRoute
+  '/churn': typeof ChurnRoute
+  '/cltv': typeof CltvRoute
+  '/customer-360': typeof Customer360Route
+  '/journey': typeof JourneyRoute
+  '/predictive': typeof PredictiveRoute
+  '/retention': typeof RetentionRoute
+  '/segmentation': typeof SegmentationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/administration': typeof AdministrationRoute
+  '/ai-insights': typeof AiInsightsRoute
+  '/churn': typeof ChurnRoute
+  '/cltv': typeof CltvRoute
+  '/customer-360': typeof Customer360Route
+  '/journey': typeof JourneyRoute
+  '/predictive': typeof PredictiveRoute
+  '/retention': typeof RetentionRoute
+  '/segmentation': typeof SegmentationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/administration'
+    | '/ai-insights'
+    | '/churn'
+    | '/cltv'
+    | '/customer-360'
+    | '/journey'
+    | '/predictive'
+    | '/retention'
+    | '/segmentation'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/administration'
+    | '/ai-insights'
+    | '/churn'
+    | '/cltv'
+    | '/customer-360'
+    | '/journey'
+    | '/predictive'
+    | '/retention'
+    | '/segmentation'
+  id:
+    | '__root__'
+    | '/'
+    | '/administration'
+    | '/ai-insights'
+    | '/churn'
+    | '/cltv'
+    | '/customer-360'
+    | '/journey'
+    | '/predictive'
+    | '/retention'
+    | '/segmentation'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdministrationRoute: typeof AdministrationRoute
+  AiInsightsRoute: typeof AiInsightsRoute
+  ChurnRoute: typeof ChurnRoute
+  CltvRoute: typeof CltvRoute
+  Customer360Route: typeof Customer360Route
+  JourneyRoute: typeof JourneyRoute
+  PredictiveRoute: typeof PredictiveRoute
+  RetentionRoute: typeof RetentionRoute
+  SegmentationRoute: typeof SegmentationRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/segmentation': {
+      id: '/segmentation'
+      path: '/segmentation'
+      fullPath: '/segmentation'
+      preLoaderRoute: typeof SegmentationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/retention': {
+      id: '/retention'
+      path: '/retention'
+      fullPath: '/retention'
+      preLoaderRoute: typeof RetentionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/predictive': {
+      id: '/predictive'
+      path: '/predictive'
+      fullPath: '/predictive'
+      preLoaderRoute: typeof PredictiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/journey': {
+      id: '/journey'
+      path: '/journey'
+      fullPath: '/journey'
+      preLoaderRoute: typeof JourneyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customer-360': {
+      id: '/customer-360'
+      path: '/customer-360'
+      fullPath: '/customer-360'
+      preLoaderRoute: typeof Customer360RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cltv': {
+      id: '/cltv'
+      path: '/cltv'
+      fullPath: '/cltv'
+      preLoaderRoute: typeof CltvRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/churn': {
+      id: '/churn'
+      path: '/churn'
+      fullPath: '/churn'
+      preLoaderRoute: typeof ChurnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-insights': {
+      id: '/ai-insights'
+      path: '/ai-insights'
+      fullPath: '/ai-insights'
+      preLoaderRoute: typeof AiInsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/administration': {
+      id: '/administration'
+      path: '/administration'
+      fullPath: '/administration'
+      preLoaderRoute: typeof AdministrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +237,16 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdministrationRoute: AdministrationRoute,
+  AiInsightsRoute: AiInsightsRoute,
+  ChurnRoute: ChurnRoute,
+  CltvRoute: CltvRoute,
+  Customer360Route: Customer360Route,
+  JourneyRoute: JourneyRoute,
+  PredictiveRoute: PredictiveRoute,
+  RetentionRoute: RetentionRoute,
+  SegmentationRoute: SegmentationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
