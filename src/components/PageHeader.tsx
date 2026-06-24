@@ -4,7 +4,7 @@ import { Download, FileSpreadsheet, Filter } from "lucide-react";
 
 interface Props {
   title: string;
-  subtitle?: string;
+  subtitle?: ReactNode;
   children?: ReactNode;
 }
 

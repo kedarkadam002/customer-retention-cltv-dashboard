@@ -4,7 +4,7 @@ import { TERMS } from "@/lib/terms";
 
 interface Props {
   title: string;
-  subtitle?: string;
+  subtitle?: ReactNode;
   children: ReactNode;
   className?: string;
   action?: ReactNode;
