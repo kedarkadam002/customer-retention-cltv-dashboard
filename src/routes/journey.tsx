@@ -1,14 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { ChartCard } from "@/components/ChartCard";
 import { CHART_COLORS } from "@/components/chartTheme";
 import { ArrowRight } from "lucide-react";
 import { InfoTerm } from "@/components/InfoTerm";
 
-export const Route = createFileRoute("/journey")({
-  head: () => ({ meta: [{ title: "Customer Journey · LG" }] }),
-  component: JourneyPage,
-});
 
 const STAGES = [
   { name: "Lead", value: 25000, color: CHART_COLORS[1] },
@@ -18,7 +13,7 @@ const STAGES = [
   { name: "Advocate", value: 980, color: CHART_COLORS[0] },
 ];
 
-function JourneyPage() {
+export default function JourneyPage() {
   return (
     <div>
       <PageHeader title="Customer Journey Analytics" subtitle="Lifecycle progression from lead to advocate — conversion, drop-off, and bottlenecks." />

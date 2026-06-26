@@ -1,16 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { ChartCard } from "@/components/ChartCard";
 import { Calendar, Database, Key, Users, Shield, FileDown } from "lucide-react";
 
-export const Route = createFileRoute("/administration")({
-  head: () => ({ meta: [{ title: "Administration · LG" }] }),
-  component: Administration,
-});
 
-function Administration() {
+export default function Administration() {
   return (
     <div>
       <PageHeader title="Administration" subtitle="Workspace configuration, scheduled reports, integrations, and access controls." />

@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import {
   Area, AreaChart, Bar, BarChart, CartesianGrid, Cell, Legend, Line, LineChart,
   ResponsiveContainer, Tooltip, XAxis, YAxis,
@@ -11,12 +10,8 @@ import { ChartCard } from "@/components/ChartCard";
 import { CHART_COLORS, AXIS, GRID, tooltipStyle } from "@/components/chartTheme";
 import { bySegmentMetrics, fmtCurrency, fmtNumber, getKpis, getMonthlyTrend } from "@/lib/mockData";
 
-export const Route = createFileRoute("/")({
-  head: () => ({ meta: [{ title: "Executive Overview · LG Retention Cloud" }] }),
-  component: ExecutiveOverview,
-});
 
-function ExecutiveOverview() {
+export default function ExecutiveOverview() {
   const k = getKpis();
   const trend = getMonthlyTrend();
   const segMetrics = bySegmentMetrics();

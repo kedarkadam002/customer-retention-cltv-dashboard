@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Brain, Target, Coins, Repeat, ShieldCheck } from "lucide-react";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis, Cell } from "recharts";
 import { PageHeader } from "@/components/PageHeader";
@@ -6,10 +5,6 @@ import { ChartCard } from "@/components/ChartCard";
 import { CHART_COLORS, AXIS, GRID, tooltipStyle } from "@/components/chartTheme";
 import { InfoTerm } from "@/components/InfoTerm";
 
-export const Route = createFileRoute("/predictive")({
-  head: () => ({ meta: [{ title: "Predictive Analytics · LG" }] }),
-  component: Predictive,
-});
 
 const MODELS = [
   {
@@ -74,7 +69,7 @@ const MODELS = [
   },
 ];
 
-function Predictive() {
+export default function Predictive() {
   return (
     <div>
       <PageHeader title="Predictive Analytics" subtitle="Production ML models powering retention, lifetime value, and next-best-action recommendations." />

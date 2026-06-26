@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Bar, BarChart, CartesianGrid, Cell, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis, ZAxis, ReferenceLine } from "recharts";
 import { PageHeader } from "@/components/PageHeader";
 import { KpiCard } from "@/components/KpiCard";
@@ -6,12 +5,8 @@ import { ChartCard } from "@/components/ChartCard";
 import { CHART_COLORS, AXIS, GRID, tooltipStyle } from "@/components/chartTheme";
 import { bySegmentMetrics, byRegion, fmtCurrency, fmtNumber, getCustomers, topByCltv } from "@/lib/mockData";
 
-export const Route = createFileRoute("/cltv")({
-  head: () => ({ meta: [{ title: "Customer Lifetime Value · LG" }] }),
-  component: CltvPage,
-});
 
-function CltvPage() {
+export default function CltvPage() {
   const customers = getCustomers();
   const avg = customers.reduce((s, c) => s + c.cltv, 0) / customers.length;
   const predicted = customers.reduce((s, c) => s + c.predictedCltv, 0) / customers.length;
