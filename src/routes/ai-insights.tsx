@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Send, Sparkles, TrendingUp, AlertTriangle, Gem, Users } from "lucide-react";
 import { PageHeader } from "@/components/PageHeader";
@@ -6,10 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { getKpis, fmtCurrency, fmtNumber, bySegmentMetrics, byRfmSegment } from "@/lib/mockData";
 
-export const Route = createFileRoute("/ai-insights")({
-  head: () => ({ meta: [{ title: "AI Insights · LG" }] }),
-  component: AiInsights,
-});
 
 type Msg = { role: "user" | "assistant"; text: string };
 
@@ -45,7 +40,7 @@ function answerFor(q: string): string {
   return `Insight summary: total customer base of ${fmtNumber(k.total)} with a retention rate of ${k.retentionRate}% and average CLTV of ${fmtCurrency(k.avgCltv)}. Ask me about churn risk, CLTV by segment, revenue at risk, or retention drivers for a deeper view.`;
 }
 
-function AiInsights() {
+export default function AiInsights() {
   const [messages, setMessages] = useState<Msg[]>([
     {
       role: "assistant",

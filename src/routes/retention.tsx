@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import {
   Bar, BarChart, CartesianGrid, Cell, ResponsiveContainer, Tooltip, XAxis, YAxis,
 } from "recharts";
@@ -9,12 +8,8 @@ import { CHART_COLORS, AXIS, GRID, tooltipStyle } from "@/components/chartTheme"
 import { bySegmentMetrics, byIndustry, byProduct, byRegion, fmtCurrency, getCohortRetention, getCustomers } from "@/lib/mockData";
 import { InfoTerm } from "@/components/InfoTerm";
 
-export const Route = createFileRoute("/retention")({
-  head: () => ({ meta: [{ title: "Retention Analytics · LG" }] }),
-  component: RetentionPage,
-});
 
-function RetentionPage() {
+export default function RetentionPage() {
   const customers = getCustomers();
   const repeatRate = (customers.filter((c) => c.orders > 1).length / customers.length) * 100;
   const avgTenure = customers.reduce((s, c) => s + c.tenureMonths, 0) / customers.length;

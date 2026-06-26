@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Bar, BarChart, CartesianGrid, Cell, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis, Line, LineChart, Legend } from "recharts";
 import { PageHeader } from "@/components/PageHeader";
 import { KpiCard } from "@/components/KpiCard";
@@ -7,12 +6,8 @@ import { CHART_COLORS, AXIS, GRID, tooltipStyle } from "@/components/chartTheme"
 import { bySegmentMetrics, fmtCurrency, fmtNumber, getCustomers, getMonthlyTrend, topChurnRisk } from "@/lib/mockData";
 import { InfoTerm } from "@/components/InfoTerm";
 
-export const Route = createFileRoute("/churn")({
-  head: () => ({ meta: [{ title: "Churn Intelligence · LG" }] }),
-  component: ChurnPage,
-});
 
-function ChurnPage() {
+export default function ChurnPage() {
   const customers = getCustomers();
   const churned = customers.filter((c) => c.churnFlag);
   const churnRate = (churned.length / customers.length) * 100;

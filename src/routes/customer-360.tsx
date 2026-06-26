@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
 import { PageHeader } from "@/components/PageHeader";
@@ -9,12 +8,8 @@ import { CHART_COLORS, AXIS, GRID, tooltipStyle } from "@/components/chartTheme"
 import { fmtCurrency, getCustomers } from "@/lib/mockData";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
-export const Route = createFileRoute("/customer-360")({
-  head: () => ({ meta: [{ title: "Customer 360 · LG" }] }),
-  component: Customer360,
-});
 
-function Customer360() {
+export default function Customer360() {
   const all = getCustomers();
   const [q, setQ] = useState("");
   const [selectedId, setSelectedId] = useState(all[0].id);

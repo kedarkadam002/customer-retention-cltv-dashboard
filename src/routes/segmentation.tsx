@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Bar, BarChart, CartesianGrid, Cell, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis, Legend } from "recharts";
 import { PageHeader } from "@/components/PageHeader";
 import { ChartCard } from "@/components/ChartCard";
@@ -6,10 +5,6 @@ import { CHART_COLORS, AXIS, GRID, tooltipStyle } from "@/components/chartTheme"
 import { byRfmSegment, fmtCurrency, fmtNumber } from "@/lib/mockData";
 import { InfoTerm } from "@/components/InfoTerm";
 
-export const Route = createFileRoute("/segmentation")({
-  head: () => ({ meta: [{ title: "Customer Segmentation · LG" }] }),
-  component: SegmentationPage,
-});
 
 const SEG_COLORS: Record<string, string> = {
   Champions: "oklch(0.72 0.18 160)",
@@ -20,7 +15,7 @@ const SEG_COLORS: Record<string, string> = {
   "New Customers": "oklch(0.7 0.15 280)",
 };
 
-function SegmentationPage() {
+export default function SegmentationPage() {
   const rfm = byRfmSegment();
   const total = rfm.reduce((s, r) => s + r.customers, 0);
 
